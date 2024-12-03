@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with AI</title>
+</head>
+<body>
+    <h1>Chat with AI</h1>
+
+    <!-- Form for sending messages -->
+    <form method="POST" action="/chat">
+        <input type="text" name="user_input" placeholder="Ask something..." required>
+        <button type="submit">Send</button>
+    </form>
+
+    <div id="chat-box">
+        {% if bot_response %}
+            <p><strong>You:</strong> {{ request.form['user_input'] }}</p>
+            <p><strong>AI:</strong> {{ bot_response }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
